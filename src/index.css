@@ -5,9 +5,166 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f6f0ee !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.song-card{
+  width: 160px;
+  border: 1px solid #a6a2aa;
+  border-radius: 5px;
+}
+
+.song-thumbnail{
+  width: 160px;
+  height: 150px;
+}
+
+.song-card-body{
+  position: relative;
+  max-height: 60px;
+}
+
+.song-title{
+  font-weight: bold;
+  margin-top: -15px;
+}
+
+.singer-name{
+  margin-top: -10px;
+  color: #a0a0a0;
+}
+
+.container-home{
+  margin: 0 40px 0 300px;
+}
+
+/*Sidebar*/
+
+.sidebar{
+  background-color: #00011a;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  height: 100%;
+}
+.sidebar-list{
+  list-style-type: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-link{
+  margin-left: 10px;
+  color: #f6f0ee;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.sidebar-list li{
+  border-left: #00011a 2px solid;
+}
+
+.sidebar-list li:hover{
+  transition: 0.2s ease-in;
+  border-left: #4CAF50 2px solid;
+  color: #4CAF50;
+}
+
+.sidebar-link:hover{
+  transition: 0.2s ease-in;
+  color: #4CAF50;
+}
+
+.sidebar-title{
+  text-align: center;
+  color: #f6f0ee;
+}
+.logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/*Header*/
+
+#pink{
+  background-color: #e75480;
+}
+#blue{
+  background-color: deepskyblue;
+}
+#red{
+  background-color: #F40009;
+}
+#green{
+  background-color:#4CAF50;
+}
+.audio-player-container, .header-container{
+  margin: 0 0 0 250px;
+}
+.audio-player-container{
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.audio-controls{
+  position: relative;
+  bottom: 50%;
+  left: 50%;
+}
+.timeline{
+  position: relative;
+  width: 60%;
+}
+.header-menu-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+}
+.header-menu-item h3{
+  color: white;
+}
+@media only screen and (max-width: 767px){
+
+  .sidebar-show{
+    background-color: #00011a;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 1;
+    transition: 0.6s ease-in;
+  }
+  .sidebar{
+    width: 0%;
+    transition: 0.6s ease-in;
+    z-index: 0;
+  }
+  .sidebar .sidebar-list, .sidebar .sidebar-link{
+    transition: 0.6s ease-in;
+    display: none;
+  }
+  .sidebar-nav{
+    position: absolute;
+    left: 10px;
+    top: 30px;
+  }
+  .sidebar-nav i{
+    color: black;
+  }
+  .sidebar-close{
+    color: white;
+  }
+  .container-home{
+    margin: 0 40px 0 30px;
+  }
 }
