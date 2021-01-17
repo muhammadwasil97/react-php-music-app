@@ -7,12 +7,18 @@ import NewRelease from './components/NewRelease';
 import TopChart from './components/TopChart';
 import Podcast from "./components/Podcast";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Topbar from './components/Topbar';
+import Singer from './components/Singer';
+import Footer from './components/Footer';
+import About from './components/About';
+import UserInfo from './components/UserInfo';
 
 function App() {
   return (
     <div>
-      <Router basename="/music_app_backend">
+      <Router basename="/">
         <Sidebar />
+        <Topbar />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path="/trending" component={Trending} />
@@ -20,7 +26,11 @@ function App() {
           <Route exact path="/top" component={TopChart} />
           <Route exact path="/podcast" component={Podcast} />
           <Route exact path='/audio-player/:id' component={AudioPlayer} />
+          <Route exact path='/singer/:singer' component={Singer} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/userinfo' component={UserInfo} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

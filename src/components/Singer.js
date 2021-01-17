@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
+var link = 'https://react-php-music-app.000webhostapp.com/'
 
 const audioClips = [
     {sound: 'https://react-php-music-app.000webhostapp.com/tracks/baari.mp3', label: 'Baari', singer: 'Bilal Saeed', trending:true},
@@ -18,11 +19,10 @@ const audioClips = [
     {sound: 'https://react-php-music-app.000webhostapp.com/tracks/roiyaan.mp3', label: 'Roiyaan', singer: 'Farhan Saeed', trending:false}
 ]
 
-
-const Trending = () => {
-
+const Singer = () => {
+    let {singer} = useParams();
     const audio =  audioClips.map((soundObj, index) => {
-        if(soundObj.trending == true){
+        if(soundObj.singer == singer){
             return(
                 <tr>
                     <th scope="row" >{index}</th>
@@ -35,37 +35,41 @@ const Trending = () => {
             }
         }
     )
-
     return(
-        <React.Fragment>
-            <div className="container-home"> 
-                <div className="row">
-                    <div className="col mt-5">
-                        <div className="d-sm-flex justify-content-start">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">
-                                            #
-                                        </th>
-                                        <th scope="col">
-                                            Label
-                                        </th>
-                                        <th scope="col">
-                                            Singer
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {audio}
-                                </tbody>
-                            </table>
-                        </div>
+        <div className="container-home">
+            <div className="row">
+                <div className="col">
+                    <div className="d-flex justify-content-start">
+                        <h1 style={{fontSize:'45px'}}>{singer}</h1><i style={{fontSize:'45px'}} class="bi bi-headphones"></i>
                     </div>
                 </div>
             </div>
-    </ React.Fragment>
+            <div className="row">
+                <div className="col mt-5">
+                    <div className="d-sm-flex justify-content-start">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        #
+                                    </th>
+                                    <th scope="col">
+                                        Label
+                                    </th>
+                                    <th scope="col">
+                                        Singer
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {audio}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
-export default Trending;
+export default Singer;

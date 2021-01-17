@@ -1,8 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+
 
 const Sidebar = () => {
     const [sidebar, sidebarOpen] = useState('sidebar');
+    const [collapse, showCollapse] = useState('collapse');
+
+    const collapseList = (e) => {
+        e.preventDefault();
+        if(collapse=="collapse"){
+            setTimeout(
+                function(){
+                    showCollapse('collapse show')
+                }, 350   
+            )  
+            showCollapse('collapsing')
+        }
+        else{ 
+            setTimeout(
+                function(){
+                    showCollapse('collapse')
+                }, 350   
+            )  
+            showCollapse('collapsing')
+        }
+    }
+    
 
     return(
         <React.Fragment>
@@ -21,44 +44,45 @@ const Sidebar = () => {
                 </div>
                 <div className="row my-3">
                     <div className="col logo">
-                        <h4 className="text-center text-white text-uppercase fw-bold">Music App</h4>
+                        <Link to="/" className="sidebar-link">
+                            <img src="logo.png" className="img-thumbnail ms-5" width="100" />
+                        </Link>
                     </div>
                 </div>
                 <div className="row mt-5">
                     <div className="col">
-                        <h6 className="sidebar-title">Pages</h6>
-                        <ul className="sidebar-list">
-                            <li>
-                                <Link to="/" className="sidebar-link">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/trending" className="sidebar-link">
-                                    Trending
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/new" className="sidebar-link">
-                                    New Releases
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/top" className="sidebar-link">
-                                    Top Charts
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/podcast" className="sidebar-link">
-                                    Podcasts
-                                </Link>
-                            </li>
-                            <li>
-                                <a className="sidebar-link">
-                                    XYZ
-                                </a>
-                            </li>
-                        </ul>
+                        <div className="d-flex justify-content-center">
+                            <a className="sidebar-title" onClick={collapseList}>Artists</a>
+                        </div>
+                        <div className={collapse}>
+                            <ul className='sidebar-list'>
+                                <li>
+                                    <Link to="/singer/Strings" className="sidebar-link">
+                                        Strings
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/singer/Young Stunners" className="sidebar-link">
+                                    Young Stunners
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/singer/Asim Azhar" className="sidebar-link">
+                                        Asim Azhar
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/singer/Atif Aslam" className="sidebar-link">
+                                        Atif Aslam
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/singer/Farhan Saeed" className="sidebar-link">
+                                        Farhan Saeed
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

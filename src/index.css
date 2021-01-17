@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f6f0ee !important;
+  overflow-x: hidden;
 }
 
 code {
@@ -83,16 +84,21 @@ code {
 }
 
 .sidebar-title{
-  text-align: center;
   color: #f6f0ee;
+  cursor: pointer;
 }
 .logo{
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-/*Header*/
-
+/*topbar*/
+.container-topbar{
+  margin-left: 250px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 #pink{
   background-color: #e75480;
 }
@@ -110,8 +116,8 @@ code {
 }
 .audio-player-container{
   background-color: white;
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  bottom: 10%;
   width: 100%;
 }
 .audio-controls{
@@ -127,10 +133,13 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   height: 100px;
 }
-.header-menu-item h3{
+.header-menu-item .h3{
   color: white;
+  font-size: larger;
+  text-decoration: none;
 }
 @media only screen and (max-width: 767px){
 
@@ -141,7 +150,7 @@ code {
     padding: 0;
     width: 250px;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     transition: 0.6s ease-in;
   }
   .sidebar{
@@ -167,4 +176,10 @@ code {
   .container-home{
     margin: 0 40px 0 30px;
   }
+}
+footer{
+  z-index: 9999 !important;
+  position: relative;
+  bottom: 0;
+  left: 0;
 }

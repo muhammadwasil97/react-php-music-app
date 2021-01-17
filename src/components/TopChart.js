@@ -1,17 +1,30 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+var link = 'https://react-php-music-app.000webhostapp.com/'
+
 
 const audioClips = [
-    {sound: 'http://localhost/music_app_backend/tracks/baari.mp3', label: 'Baari', singer: 'Bilal Saeed'},
-    {sound: 'http://localhost/music_app_backend/tracks/tumtum.mp3', label: 'Tum Tum', singer: 'Tum Tum'},
-    {sound: 'http://localhost/music_app_backend/tracks/yerealhai.mp3', label: 'Ye Real Hai', singer: 'Young Stunners'},
-    {sound: 'http://localhost/music_app_backend/tracks/thaamlo.mp3', label: 'Thaam Lo', singer: 'Atif Aslam'}
+    {sound: link+'tracks/baari.mp3', label: 'Baari', singer: 'Bilal Saeed', trending:true, img: link+'images/bilal.jpg', pod: false, top: true},
+    {sound: link+'tracks/tumtum.mp3', label: 'Tum Tum', singer: 'Tum Tum', trending:true, img: link+'images/ys.jpg', pod: false, top: true},
+    {sound: link+'tracks/yerealhai.mp3', label: 'Ye Real Hai', singer: 'Young Stunners', trending:true, img: link+'images/ys.jpg', podcast: true, top: false},
+    {sound: link+'tracks/thaamlo.mp3', label: 'Thaam Lo', singer: 'Atif Aslam', trending:false, img: link+'images/atif.jpg', podcast: true, top: false},
+    {sound: link+'tracks/indino.mp3', label: 'In Dino', singer: 'Atif Aslam', trending:false, img: link+'images/atif.jpg', podcast: true, top: true},
+    {sound: link+'tracks/yaarian.mp3', label: 'Yaariyan', singer: 'Atif Aslam, Ali Zafar', trending:false, img: link+'images/alizafar.jpg', podcast: true, top: true},
+    {sound: link+'tracks/dhaani.mp3', label: 'Dhaani', singer: 'Strings', trending:false, img: link+'images/strings.jpg', pod: false, top: true},
+    {sound: link+'tracks/farhansaeed.mp3', label: 'Kyun Gai', singer: 'Farhan Saeed', trending:false, img: link+'images/farhan.jpg', podcast: true, top: false},
+    {sound: link+'tracks/ghalatfehmi.mp3', label: 'Ghalat Fehmi', singer: 'Asim Azhar', trending:false, img: link+'images/asim.jpg', podcast: true, top: true},
+    {sound: link+'tracks/karachiislove.mp3', label: 'Karachi Is Love', singer: 'Young Stunners', trending:true, img: link+'images/ys.jpg', pod: false, top: false},
+    {sound: link+'tracks/merabichrayaar.mp3', label: 'Mera Bicchra Yaar', singer: 'Strings', trending:false, img: link+'images/strings.jpg', pod: false, top: true},
+    {sound: link+'tracks/najanaykyon.mp3', label: 'Na Janay Kyon', singer: 'Strings', trending:true, img: link+'images/strings.jpg', pod: false, top: false},
+    {sound: link+'tracks/pijaon.mp3', label: 'Pi Jaon', singer: 'Farhan Saeed', trending:false, img: link+'images/farhan.jpg', podcast: true, top: true},
+    {sound: link+'tracks/roiyaan.mp3', label: 'Roiyaan', singer: 'Farhan Saeed', trending:false, img: link+'images/farhan.jpg', podcast: true, top: true}
 ]
 
 
 const TopChart = () => {
 
     const audio =  audioClips.map((soundObj, index) => {
+        if(soundObj.top){
         return(
             <tr>
                 <th scope="row" >{index}</th>
@@ -20,7 +33,7 @@ const TopChart = () => {
                 </Link>
                 <td>{soundObj.singer}</td>
             </tr>
-            )
+            )}
         }
     )
 
