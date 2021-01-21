@@ -1,6 +1,6 @@
 {
   "name": "music-app",
-  "homepage": "https://react-php-music-app.000webhostapp.com/",
+  "homepage": "http://localhost/music_app_backend/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

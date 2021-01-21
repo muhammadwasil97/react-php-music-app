@@ -16,7 +16,7 @@ import UserInfo from './components/UserInfo';
 function App() {
   return (
     <div>
-      <Router basename="/">
+      <Router basename="/music_app_backend">
         <Sidebar />
         <Topbar />
         <Switch>

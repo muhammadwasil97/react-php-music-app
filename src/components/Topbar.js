@@ -9,7 +9,7 @@ const Topbar = () => {
     const user = () => {
         $.ajax(
             {
-                url:'https://react-php-music-app.000webhostapp.com/data.php',
+                url:'http://localhost/music_app_backend/data.php',
                 method: 'GET',
                 headers:{
                     'Accept': 'application/json',
